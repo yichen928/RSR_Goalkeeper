@@ -1,0 +1,14 @@
+<launch>
+<node pkg="tf" type="static_transform_publisher" name="camera_to_ext" args=" 0 0 -0.035 0 0 0 1 d400_link camera_ext 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="world_to_camera" args=" 5.0 0 0.44 0 0 -1 0  map d400_link 100" /> 
+
+<node pkg="tf" type="static_transform_publisher" name="camera_to_a1" args=" 0.85 0.4 -0.3 0 0 0 1 camera_ext a1 100" />
+
+<node pkg="tf" type="static_transform_publisher" name="tag_dog" args=" 0 0 0 0.5 0.5 0.5 -0.5 tag_4 dog 100" />
+
+<node pkg="ball_pipeline" name="ball_pipeline_double_robots" type="ball_pipeline_double_robots.py" output="screen" /> 
+
+<node pkg="tf" type="static_transform_publisher" name="world_to_cam_broadcaster" args="-1.51 -0.695 0.425 0.0 0.0 0.0 world camera_color_optical_frame 100" />
+
+</launch>
